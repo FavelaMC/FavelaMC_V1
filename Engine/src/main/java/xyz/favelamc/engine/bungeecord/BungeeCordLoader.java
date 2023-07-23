@@ -18,6 +18,7 @@ public class BungeeCordLoader extends BungeeCordMain {
     @Override
     public void onEnable() {
         enableService();
+        enableListener();
     }
 
     @Override
