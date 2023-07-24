@@ -3,6 +3,7 @@ package xyz.favelamc.engine.bukkit;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.favelamc.engine.bukkit.commands.register.AccountCommand;
 import xyz.favelamc.engine.bukkit.inventorys.AccountInventory;
 
 public class BukkitMain extends JavaPlugin {
@@ -32,6 +33,15 @@ public class BukkitMain extends JavaPlugin {
             System.out.print("[Inventorys] -> Iniciado!");
         } catch (Exception exception) {
             System.out.print("[Inventorys] -> Ocorreu um erro ao inicializar: (" + exception + ")");
+        }
+    }
+
+    protected void enableCommands() {
+        try {
+            getCommand("account").setExecutor(new AccountCommand());
+            System.out.print("[Commands] -> Iniciado!");
+        } catch (Exception exception) {
+            System.out.print("[Commands] -> Ocorreu um erro ao inicializar: (" + exception + ")");
         }
     }
 

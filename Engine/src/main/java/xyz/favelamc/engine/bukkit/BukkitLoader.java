@@ -19,6 +19,7 @@ public class BukkitLoader extends BukkitMain {
     public void onEnable() {
         enableService();
         enableInventorys();
+        enableCommands();
     }
 
     @Override

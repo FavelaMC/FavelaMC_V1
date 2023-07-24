@@ -2,3 +2,7 @@ name: Engine
 version: 1.0
 main: xyz.favelamc.engine.bukkit.BukkitLoader
 author: Reinaldy Oliveira
+commands:
+  account:
+    aliases: conta
+    description: Tenha todas as informações de seu perfil
