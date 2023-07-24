@@ -18,6 +18,8 @@ public class LobbyLoader extends LobbyMain {
     @Override
     public void onEnable() {
         enableService();
+        enableListener();
+        enableInventorys();
     }
 
     @Override
