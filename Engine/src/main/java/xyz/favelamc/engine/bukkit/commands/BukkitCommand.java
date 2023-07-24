@@ -7,6 +7,10 @@ import org.bukkit.entity.Player;
 
 public abstract class BukkitCommand implements CommandExecutor {
 
+    /**
+     * Esta class ainda está inoperante by Piqque
+     */
+
     public boolean isPlayer(CommandSender commandSender)
     {
         return (commandSender instanceof Player);
