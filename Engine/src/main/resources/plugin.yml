@@ -6,3 +6,6 @@ commands:
   account:
     aliases: conta
     description: Tenha todas as informações de seu perfil
+  rank:
+    aliases: group
+    description: Altere informações de ranks de jogadores

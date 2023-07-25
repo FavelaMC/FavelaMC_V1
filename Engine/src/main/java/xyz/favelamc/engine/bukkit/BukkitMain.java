@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.favelamc.engine.bukkit.commands.register.AccountCommand;
+import xyz.favelamc.engine.bukkit.commands.register.RankCommand;
 import xyz.favelamc.engine.bukkit.inventorys.AccountInventory;
 
 public class BukkitMain extends JavaPlugin {
@@ -39,6 +40,7 @@ public class BukkitMain extends JavaPlugin {
     protected void enableCommands() {
         try {
             getCommand("account").setExecutor(new AccountCommand());
+            getCommand("rank").setExecutor(new RankCommand());
             System.out.print("[Commands] -> Iniciado!");
         } catch (Exception exception) {
             System.out.print("[Commands] -> Ocorreu um erro ao inicializar: (" + exception + ")");
