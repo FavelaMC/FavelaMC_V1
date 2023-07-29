@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.favelamc.engine.bukkit.commands.register.AccountCommand;
 import xyz.favelamc.engine.bukkit.commands.register.RankCommand;
 import xyz.favelamc.engine.bukkit.inventorys.AccountInventory;
+import xyz.favelamc.engine.bukkit.listeners.BukkitListener;
 
 public class BukkitMain extends JavaPlugin {
 
@@ -23,6 +24,17 @@ public class BukkitMain extends JavaPlugin {
             System.out.print("[Engine] -> Iniciado!");
         } catch (Exception exception) {
             System.out.print("[Engine] -> Ocorreu um erro ao inicializar: (" + exception + ")");
+        }
+    }
+
+    protected void enableListeners() {
+        try {
+            PluginManager pluginManager = Bukkit.getPluginManager();
+            pluginManager.registerEvents(new BukkitListener(), this);
+
+            System.out.print("[Listeners] -> Iniciado!");
+        } catch (Exception exception) {
+            System.out.print("[Listeners] -> Ocorreu um erro ao inicializar: (" + exception + ")");
         }
     }
 
