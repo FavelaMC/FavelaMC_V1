@@ -38,10 +38,8 @@ public class Teams {
                 playerNameSet.add(player.getName());
             }
 
-            for (Player players : Bukkit.getOnlinePlayers()) {
-                ReflectionUtils.sendPacketSync(players, new PacketPlayOutScoreboardTeam(scoreboardTeam, 1),
-                        new PacketPlayOutScoreboardTeam(scoreboardTeam, 0));
-            }
+            Bukkit.getOnlinePlayers().forEach(players -> ReflectionUtils.sendPacketSync(players, new PacketPlayOutScoreboardTeam(scoreboardTeam, 1),
+                    new PacketPlayOutScoreboardTeam(scoreboardTeam, 0)));
         }
     }
 
