@@ -15,10 +15,8 @@ public class ServerInventory implements Listener {
     public static void inventoryServer(Player player) {
         Inventory inventory = Bukkit.createInventory(player, 3 * 9, "§8Jogos");
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(BukkitLoader.getPlugin(), () -> {
-            inventory.setItem(13, new ItemBuilder().newItem(Material.DIAMOND_CHESTPLATE, "§aDuels"
-                    , new String[] {}, 1, (byte) 0));
-        }, 0, 20);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(BukkitLoader.getPlugin(), () -> inventory.setItem(13, new ItemBuilder().newItem(Material.DIAMOND_CHESTPLATE, "§aDuels"
+                , new String[] {}, 1, (byte) 0)), 0, 20);
         player.openInventory(inventory);
     }
 
