@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -21,6 +22,11 @@ public class LobbyListener implements Listener {
 
         Player player = playerJoinEvent.getPlayer();
         LobbyManager.loadPlayer(player);
+    }
+
+    @EventHandler
+    public void playerDropItemEvent(PlayerDropItemEvent playerDropItemEvent) {
+        playerDropItemEvent.setCancelled(true);
     }
 
     @EventHandler
