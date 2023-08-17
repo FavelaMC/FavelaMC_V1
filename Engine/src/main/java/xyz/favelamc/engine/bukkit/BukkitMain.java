@@ -3,6 +3,7 @@ package xyz.favelamc.engine.bukkit;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
 import xyz.favelamc.engine.bukkit.commands.register.AccountCommand;
 import xyz.favelamc.engine.bukkit.commands.register.RankCommand;
 import xyz.favelamc.engine.bukkit.inventorys.AccountInventory;

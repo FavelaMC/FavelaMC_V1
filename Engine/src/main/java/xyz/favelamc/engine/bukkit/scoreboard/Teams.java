@@ -3,8 +3,10 @@ package xyz.favelamc.engine.bukkit.scoreboard;
 import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardTeam;
 import net.minecraft.server.v1_8_R3.Scoreboard;
 import net.minecraft.server.v1_8_R3.ScoreboardTeam;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
 import xyz.favelamc.engine.bukkit.account.ranks.Tag;
 import xyz.favelamc.engine.bukkit.packet.ReflectionUtils;
 
