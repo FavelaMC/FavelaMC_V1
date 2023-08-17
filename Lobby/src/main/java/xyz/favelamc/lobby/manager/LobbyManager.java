@@ -7,29 +7,7 @@ import org.bukkit.entity.Player;
 import xyz.favelamc.engine.FavelaMC;
 import xyz.favelamc.engine.bukkit.api.ItemBuilder;
 
-import javax.persistence.Lob;
-import java.util.ArrayList;
-import java.util.UUID;
-
 public class LobbyManager {
-
-    public static ArrayList<UUID> captcha;
-
-    public static boolean getCaptcha(UUID uuid) {
-        return LobbyManager.captcha.contains(uuid);
-    }
-
-    public static void setCaptcha(UUID uuid) {
-        LobbyManager.captcha.add(uuid);
-    }
-
-    public static void removeCaptcha(UUID uuid) {
-        LobbyManager.captcha.remove(uuid);
-    }
-
-    public static void loginPlayer(Player player) {
-        setCaptcha(player.getUniqueId());
-    }
 
     public static void loadPlayer(Player player) {
         player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
