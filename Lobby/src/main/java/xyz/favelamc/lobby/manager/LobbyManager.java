@@ -6,11 +6,14 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import xyz.favelamc.engine.FavelaMC;
 import xyz.favelamc.engine.bukkit.api.ItemBuilder;
+import xyz.favelamc.lobby.manager.auth.LoginManager;
 
 public class LobbyManager {
 
-    public static void loadPlayer(Player player) {
+    private static void generatePlayer(Player player) {
         player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+
+        player.setMaxHealth(20);
         player.setHealth(20);
 
         player.getInventory().clear();
@@ -30,5 +33,19 @@ public class LobbyManager {
         player.sendMessage("§eDiscord: §a" + new FavelaMC().getDiscord());
         player.sendMessage("");
         player.playSound(player.getLocation(), Sound.LEVEL_UP,  2.0F, 1.0F);
+    }
+
+    public static void loadPlayer(Player player) {
+        player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+
+        if (LoginManager.inCaptcha(player.getUniqueId())) {
+
+            player.getInventory().clear();
+
+            player.setMaxHealth(2);
+            player.setHealth(2);
+
+            LoginManager.startCounting(player);
+        }
     }
 }
