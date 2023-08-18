@@ -6,6 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.*;
 
@@ -18,6 +21,26 @@ import xyz.favelamc.lobby.manager.LobbyManager;
 import xyz.favelamc.lobby.manager.auth.LoginManager;
 
 public class LobbyListener implements Listener {
+
+    @EventHandler
+    public void entityDamageEvent(EntityDamageEvent entityDamageEvent) {
+        entityDamageEvent.setCancelled(true);
+    }
+
+    @EventHandler
+    public void blockBreakEvent(BlockBreakEvent blockBreakEvent) {
+        blockBreakEvent.setCancelled(true);
+    }
+
+    @EventHandler
+    public void blockPlaceEvent(BlockPlaceEvent blockPlaceEvent) {
+        blockPlaceEvent.setCancelled(true);
+    }
+
+    @EventHandler
+    public void playerDropItemEvent(PlayerDropItemEvent playerDropItemEvent) {
+        playerDropItemEvent.setCancelled(true);
+    }
 
     @EventHandler
     public void playerLoginEvent(PlayerLoginEvent playerLoginEvent) {
@@ -34,22 +57,6 @@ public class LobbyListener implements Listener {
 
         Player player = playerJoinEvent.getPlayer();
         LobbyManager.loadPlayer(player);
-    }
-
-    @EventHandler
-    public void playerDropItemEvent(PlayerDropItemEvent playerDropItemEvent) {
-        playerDropItemEvent.setCancelled(true);
-    }
-
-    @EventHandler
-    public void inventoryCloseEvent(InventoryCloseEvent inventoryCloseEvent) {
-        Player player = (Player) inventoryCloseEvent.getPlayer();
-
-        Bukkit.getScheduler().runTaskLater(LobbyLoader.getPlugin(), () -> {
-            if (LoginManager.inCaptcha(player.getUniqueId())) {
-                CaptchaInventory.inventoryCaptcha(player);
-            }
-        }, 5);
     }
 
     @EventHandler
@@ -78,6 +85,17 @@ public class LobbyListener implements Listener {
                 CollectionsInventory.inventoryCollections(player);
             }
         }
+    }
+
+    @EventHandler
+    public void inventoryCloseEvent(InventoryCloseEvent inventoryCloseEvent) {
+        Player player = (Player) inventoryCloseEvent.getPlayer();
+
+        Bukkit.getScheduler().runTaskLater(LobbyLoader.getPlugin(), () -> {
+            if (LoginManager.inCaptcha(player.getUniqueId())) {
+                CaptchaInventory.inventoryCaptcha(player);
+            }
+        }, 5);
     }
 
     @EventHandler
