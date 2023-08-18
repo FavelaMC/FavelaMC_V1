@@ -1,20 +1,32 @@
 package xyz.favelamc.lobby.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.player.*;
+
 import xyz.favelamc.engine.bukkit.inventorys.AccountInventory;
+import xyz.favelamc.lobby.LobbyLoader;
+import xyz.favelamc.lobby.inventorys.CaptchaInventory;
 import xyz.favelamc.lobby.inventorys.CollectionsInventory;
 import xyz.favelamc.lobby.inventorys.ServerInventory;
 import xyz.favelamc.lobby.manager.LobbyManager;
+import xyz.favelamc.lobby.manager.auth.LoginManager;
 
 public class LobbyListener implements Listener {
+
+    @EventHandler
+    public void playerLoginEvent(PlayerLoginEvent playerLoginEvent) {
+        Player player = playerLoginEvent.getPlayer();
+
+        LoginManager.addCaptcha(player.getUniqueId());
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LobbyLoader.getPlugin(), () ->
+                CaptchaInventory.inventoryCaptcha(player), 5);
+    }
 
     @EventHandler
     public void playerJoinEvent(PlayerJoinEvent playerJoinEvent) {
@@ -27,6 +39,17 @@ public class LobbyListener implements Listener {
     @EventHandler
     public void playerDropItemEvent(PlayerDropItemEvent playerDropItemEvent) {
         playerDropItemEvent.setCancelled(true);
+    }
+
+    @EventHandler
+    public void inventoryCloseEvent(InventoryCloseEvent inventoryCloseEvent) {
+        Player player = (Player) inventoryCloseEvent.getPlayer();
+
+        Bukkit.getScheduler().runTaskLater(LobbyLoader.getPlugin(), () -> {
+            if (LoginManager.inCaptcha(player.getUniqueId())) {
+                CaptchaInventory.inventoryCaptcha(player);
+            }
+        }, 5);
     }
 
     @EventHandler
@@ -60,5 +83,9 @@ public class LobbyListener implements Listener {
     @EventHandler
     public void playerQuitEvent(PlayerQuitEvent playerQuitEvent) {
         playerQuitEvent.setQuitMessage(null);
+
+        Player player = playerQuitEvent.getPlayer();
+
+        LoginManager.removeCaptcha(player.getUniqueId());
     }
 }
