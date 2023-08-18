@@ -13,6 +13,7 @@ public class LobbyLoader extends LobbyMain {
     @Override
     public void onLoad() {
         loadService();
+        loadWorld();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package xyz.favelamc.lobby;
 
 import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.favelamc.lobby.commands.RegisterCommand;
@@ -17,6 +18,15 @@ public class LobbyMain extends JavaPlugin {
             System.out.print("[Lobby] -> Inicializando...");
         } catch (Exception exception) {
             System.out.print("[Lobby] -> Ocorreu um erro ao tentar inicializar: (" + exception + ")");
+        }
+    }
+
+    protected void loadWorld() {
+        try {
+            Bukkit.createWorld(WorldCreator.name("lobby"));
+            System.out.print("[World] -> Iniciado!");
+        } catch (Exception exception) {
+            System.out.print("[World] -> Ocorreu um erro ao inicializar: (" + exception + ")");
         }
     }
 
