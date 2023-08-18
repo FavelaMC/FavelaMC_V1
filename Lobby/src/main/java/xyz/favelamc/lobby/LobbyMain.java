@@ -4,6 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import xyz.favelamc.engine.bukkit.commands.register.AccountCommand;
+import xyz.favelamc.engine.bukkit.commands.register.RankCommand;
+import xyz.favelamc.lobby.commands.RegisterCommand;
 import xyz.favelamc.lobby.inventorys.CaptchaInventory;
 import xyz.favelamc.lobby.inventorys.CollectionsInventory;
 import xyz.favelamc.lobby.inventorys.ServerInventory;
@@ -49,6 +52,15 @@ public class LobbyMain extends JavaPlugin {
             System.out.print("[Inventorys] -> Iniciado!");
         } catch (Exception exception) {
             System.out.print("[Inventorys] -> Ocorreu um erro ao inicializar: (" + exception + ")");
+        }
+    }
+
+    protected void enableCommands() {
+        try {
+            getCommand("register").setExecutor(new RegisterCommand());
+            System.out.print("[Commands] -> Iniciado!");
+        } catch (Exception exception) {
+            System.out.print("[Commands] -> Ocorreu um erro ao inicializar: (" + exception + ")");
         }
     }
 

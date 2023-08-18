@@ -10,7 +10,7 @@ import xyz.favelamc.lobby.manager.auth.LoginManager;
 
 public class LobbyManager {
 
-    private static void generatePlayer(Player player) {
+    public static void generatePlayer(Player player) {
         player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
 
         player.setMaxHealth(20);

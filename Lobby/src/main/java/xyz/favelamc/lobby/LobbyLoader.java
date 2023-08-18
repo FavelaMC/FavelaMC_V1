@@ -20,6 +20,7 @@ public class LobbyLoader extends LobbyMain {
         enableService();
         enableListener();
         enableInventorys();
+        enableCommands();
     }
 
     @Override

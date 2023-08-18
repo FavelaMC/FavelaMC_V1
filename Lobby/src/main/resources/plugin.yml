@@ -2,3 +2,7 @@ name: Lobby
 version: 1.0
 main: xyz.favelamc.lobby.LobbyLoader
 author: Reinaldy Oliveira
+commands:
+  register:
+    aliases: registrar
+    description: Registre sua conta!
