@@ -3,6 +3,8 @@ package xyz.favelamc.lobby;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import xyz.favelamc.lobby.inventorys.CaptchaInventory;
 import xyz.favelamc.lobby.inventorys.CollectionsInventory;
 import xyz.favelamc.lobby.inventorys.ServerInventory;
 import xyz.favelamc.lobby.listeners.LobbyListener;
@@ -40,6 +42,7 @@ public class LobbyMain extends JavaPlugin {
     protected void enableInventorys() {
         try {
             PluginManager pluginManager = Bukkit.getPluginManager();
+            pluginManager.registerEvents(new CaptchaInventory(), this);
             pluginManager.registerEvents(new CollectionsInventory(), this);
             pluginManager.registerEvents(new ServerInventory(), this);
 
