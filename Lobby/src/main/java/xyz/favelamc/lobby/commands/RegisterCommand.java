@@ -1,5 +1,6 @@
 package xyz.favelamc.lobby.commands;
 
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -22,6 +23,9 @@ public class RegisterCommand extends BukkitCommand {
                     } else {
                         player.sendMessage("§aSua conta acaba de ser registrada!");
                         player.sendMessage("§eAbrindo conexão...");
+
+                        player.playSound(player.getLocation(), Sound.LEVEL_UP,  2.0F, 1.0F);
+
                         LobbyManager.generatePlayer(player);
                     }
                 }

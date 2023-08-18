@@ -3,7 +3,6 @@ package xyz.favelamc.lobby.manager.auth;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import xyz.favelamc.lobby.LobbyLoader;
-
 import java.util.ArrayList;
 import java.util.UUID;
 

@@ -11,7 +11,6 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.*;
-
 import xyz.favelamc.engine.bukkit.inventorys.AccountInventory;
 import xyz.favelamc.lobby.LobbyLoader;
 import xyz.favelamc.lobby.inventorys.CaptchaInventory;
@@ -103,7 +102,6 @@ public class LobbyListener implements Listener {
         playerQuitEvent.setQuitMessage(null);
 
         Player player = playerQuitEvent.getPlayer();
-
         LoginManager.removeCaptcha(player.getUniqueId());
     }
 }

@@ -11,7 +11,7 @@ import xyz.favelamc.lobby.manager.auth.LoginManager;
 public class LobbyManager {
 
     public static void generatePlayer(Player player) {
-        player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+        player.teleport(Bukkit.getWorld("lobby").getSpawnLocation());
 
         player.setMaxHealth(20);
         player.setHealth(20);
@@ -32,11 +32,12 @@ public class LobbyManager {
         player.sendMessage("§eLoja: §a" + new FavelaMC().getStore());
         player.sendMessage("§eDiscord: §a" + new FavelaMC().getDiscord());
         player.sendMessage("");
+
         player.playSound(player.getLocation(), Sound.LEVEL_UP,  2.0F, 1.0F);
     }
 
     public static void loadPlayer(Player player) {
-        player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+        player.teleport(Bukkit.getWorld("login").getSpawnLocation());
 
         if (LoginManager.inCaptcha(player.getUniqueId())) {
 

@@ -10,7 +10,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import xyz.favelamc.engine.bukkit.api.ItemBuilder;
 import xyz.favelamc.lobby.manager.auth.LoginManager;
-
 import java.util.Random;
 
 public class CaptchaInventory implements Listener {
