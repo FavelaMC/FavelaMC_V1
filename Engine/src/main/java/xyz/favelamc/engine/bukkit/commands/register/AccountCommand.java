@@ -3,7 +3,6 @@ package xyz.favelamc.engine.bukkit.commands.register;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
 import xyz.favelamc.engine.bukkit.commands.BukkitCommand;
 
 public class AccountCommand extends BukkitCommand {

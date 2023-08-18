@@ -2,7 +2,6 @@ package xyz.favelamc.engine.bungeecord;
 
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
-
 import xyz.favelamc.engine.bungeecord.listeners.BungeeCordListener;
 
 public class BungeeCordMain extends Plugin {

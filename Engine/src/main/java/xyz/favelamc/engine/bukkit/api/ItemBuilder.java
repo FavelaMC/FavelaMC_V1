@@ -1,7 +1,6 @@
 package xyz.favelamc.engine.bukkit.api;
 
 import java.util.Arrays;
-
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

@@ -24,7 +24,6 @@ package xyz.favelamc.engine.bukkit.packet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.lang.invoke.MethodHandle;
