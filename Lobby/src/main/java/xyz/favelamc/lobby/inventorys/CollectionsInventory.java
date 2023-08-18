@@ -7,15 +7,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import xyz.favelamc.engine.bukkit.BukkitLoader;
 import xyz.favelamc.engine.bukkit.api.ItemBuilder;
+import xyz.favelamc.lobby.LobbyLoader;
 
 public class CollectionsInventory implements Listener {
 
     public static void inventoryCollections(Player player) {
         Inventory inventory = Bukkit.createInventory(player, 3 * 9, "§8Colecionáveis");
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(BukkitLoader.getPlugin(), () -> inventory.setItem(13, new ItemBuilder().newItem(Material.BARRIER, "§c???"
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(LobbyLoader.getPlugin(), () -> inventory.setItem(13, new ItemBuilder().newItem(Material.BARRIER, "§c???"
                 , new String[] {}, 1, (byte) 0)), 0, 20);
         player.openInventory(inventory);
     }
